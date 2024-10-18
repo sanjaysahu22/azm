@@ -1,65 +1,28 @@
 'use client'
 import Link from "next/link";
-
+import {  Settings } from "lucide-react"
 const str = ">"
 export  function Sidebar() {
   return (
     <> 
-        <div className="w-1/5 bg-white h-screen flex fixed flex-col items-center ">
-        <div className="text-3xl p-8 font-semibold"> Dashboard <span className="text-sm text-zinc-400">v.01</span></div>
-        <div className="flex flex-col w-2/3 gap-3 text-sm   mt-5 text-zinc-400">
-          <div className="flex justify-between  rounded-lg  py-2 px-1    ">
-            <div className="flex  w-3/4   px-1 ">
-            <div className="bg-red-300 w-6 rounded-full"></div>
-           <Link href='/dashboard/main' className=" ml-5">Dashboard</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          <div className="flex justify-between  rounded-lg  py-2 px-1 ">
-            <div className="flex  w-3/4 px-1 ">
-            <div className="bg-red-300 w-6 rounded-full"></div>
-           <Link href='/dashboard/calender' className="ml-5">Calender</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          <div className="flex justify-between  rounded-lg  py-2 px-1 ">
-            <div className="flex  w-3/4  px-1 ">
-            <div className="bg-red-300 w-6  rounded-full"></div>
-           <Link href='/dashboard/crashReport' className="ml-5">Crash Report</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          <div className="flex justify-between  rounded-lg  py-2 px-1 ">
-            <div className="flex  w-3/4 px-1 ">
-            <div className="bg-red-300 w-6   rounded-full"></div>
-           <Link href='/dashboard/payments' className="ml-5">payments</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          <div className="flex justify-between  rounded-lg  py-2 px-1 ">
-            <div className="flex  w-3/4   px-1 ">
-            <div className="bg-red-300 w-6 rounded-full"></div>
-           <Link href='/dashboard/email' className="ml-5">Email</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          <div className="flex justify-between  rounded-lg  py-2 px-1 ">
-            <div className="flex  w-3/4 px-1 ">
-            <div className="bg-red-300 w-6 rounded-full"></div>
-           <Link href='/dashboard/settings' className="ml-5">Settings</Link>
-           </div>
-          <div className="mr-2">{str}</div>
-          </div>
-          
-       
-
-           
-            
-           
-        </div>
-            
-        </div>
-    
+        <aside className="w-64 bg-white h-screen p-4 border-r">
+    <div className="flex items-center mb-6">
+      <div className="w-8 h-8 bg-purple-600 rounded-full mr-2"></div>
+      <span className="text-xl font-semibold">Dashboard</span>
+    </div>
+    <nav className="space-y-2">
+      {['Dashboard', 'Calendar', 'CrashReport', 'Payments', 'Email', 'Settings'].map((item, index) => (
+        <Link
+          key={item}
+          href={`/dashboard/${item}`}
+          className="flex items-center p-2 rounded-lg text-gray-600  bg-gray-100 hover:bg-purple-100 hover:text-purple-600"
+        >
+          <div className={`w-5 h-5 ${index === 0 ? 'bg-purple-600' : 'bg-gray-400'} rounded mr-3`}></div>
+          {item}
+        </Link>
+      ))}
+    </nav>
+  </aside>
     </>
   );
 }

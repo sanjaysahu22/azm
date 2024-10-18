@@ -1,19 +1,16 @@
 'use client'
 import { Navbar } from "@/components/navbar"
+import { SettingsPage } from "@/components/SettingsPage";
 import { Sidebar } from "@/components/sidebar"
 
 export default function Home() {
   return (
-    <div className="h-screen w-full flex bg-zinc-100 ">
-      <div className="fixed w-1/5 h-full">
-        <Sidebar />
-      </div>
-      <div className="ml-[20%] w-4/5 bg-red-300 h-[10%]">
-        <Navbar /> 
-        <div className="">
-            
-        </div>
-      </div>
+    <div className="flex h-screen bg-gray-100">
+    <Sidebar />  
+    <div className="flex-1 flex flex-col overflow-hidden">
+    <Navbar />
+    <SettingsPage />
     </div>
+  </div>
   );    
 }

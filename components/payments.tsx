@@ -1,4 +1,6 @@
 'use client'
+import {  Download,  RefreshCw,  } from "lucide-react"
+import Image from "next/image"
 
 import { useState } from "react";
 
@@ -9,43 +11,56 @@ export function Payments() {
     const str = "<";
     return (
       <>
-      <div className="ml-[20%] w-4/5 h-full bg-zinc-100 static  ">
-        <div className="flex flex-col h-1/4 mt-2  w-[98%] rounded-md justify-between  px-5 py-4 m-auto bg-white  ">
-          <div className="flex justify-between w-full items-center ">
-              <div className="font-semibold text-xl ">Company invoices</div>
-              <div className="flex w-1/6  justify-evenly">
-                <div className="h-4 w-4 rounded-full bg-red-200"></div>
-                <div  className="h-4 w-4 rounded-full bg-red-200"></div>
-                <div  className="h-4 w-4 rounded-full bg-red-200"></div>
-                <div  className="h-4 w-4 rounded-full bg-red-200"></div>
+     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
+          <div className="container mx-auto px-6 py-8">
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-semibold">Companies Invoices</h2>
+                <div className="flex space-x-2">
+                  <RefreshCw className="h-6 w-6 text-gray-500" />
+                  <Download className="h-6 w-6 text-gray-500" />
                 </div>
-          </div>
+              </div>
+              
+              <div className="flex items-center mb-6">
+                <Image
+                  src="/placeholder.svg?height=40&width=40"
+                  alt="McDonald's"
+                  width={40}
+                  height={40}
+                  className="rounded-full mr-4"
+                />
+                <span className="text-xl font-medium">McDonalds</span>
+              </div>
 
-          <div className="flex gap-3  ">
-            <div className="h-6 w-6 rounded-md bg-red-300 " ></div ><div className="font-bold text-sm  ">McDonalds</div></div>
-            <div className="flex justify-between mt-2 w-full   py-2  rounded-full bg-zinc-100 self-center ">
-            <div className="bg-zinc-200 px-2 rounded-full ml-8">Date</div>
-            <div  className="bg-zinc-200 px-2 rounded-full">Description</div>
-            <div  className="bg-zinc-200 px-2 rounded-full">Billing Amount</div>
-            <div  className="bg-zinc-200 px-2 rounded-full mr-8">status</div>
-          </div>
-        </div>
-       <div className="bg-white w-[98%] m-auto  mt-2 rounded-lg py-3 px-1 gap-3">
-       <div className="flex justify-between px-10  text-sm   w-full h-16   rounded-md bg-zinc-100 items-center ">
-            <div className=" ">Feb 2, 2024</div>
-            <div  className="  flex flex-col  justify-center items-center">
-                <div className="font-semibold">Quaterly true-up</div>
-                <div className="text-sm ">July 1:2023 - July 5:2023</div>
+              <table className="w-full">
+                <thead>
+                  <tr className="text-left text-gray-500 text-sm">
+                    <th className="pb-3">Date</th>
+                    <th className="pb-3">Description</th>
+                    <th className="pb-3">Billing Amount</th>
+                    <th className="pb-3">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(12)].map((_, index) => (
+                    <tr key={index} className="border-t">
+                      <td className="py-4">Feb 2, 2024</td>
+                      <td className="py-4">
+                        <div>Quarterly true-up</div>
+                        <div className="text-sm text-gray-500">July 14, 2023 - July 5,2024</div>
+                      </td>
+                      <td className="py-4">Rs 50,00.00</td>
+                      <td className="py-4">
+                        <span className="text-green-600 font-medium">Paid</span>
+                        <div className="text-sm text-purple-600">View Invoice</div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <div  className="">Rs. 50,000</div>
-            <div  className="  flex flex-col items-center leading-3 justify-center ">
-                <div className="font-bold">Paid</div>
-                <div className="    text-blue-500 text-sm">view invoice</div>
-                </div>
           </div>
-          </div> 
-       
-      </div>
-      </>
+        </main>      </>
     );
 }
