@@ -1,8 +1,8 @@
 'use client'
 import { Bell, ChevronDown,  CircleHelp, Search } from "lucide-react"
-import Image from "next/image"
+
 export function Navbar() {
-    const str = "<"
+ 
   return (
     <>
       <nav className="bg-white p-4 flex justify-between items-center border-b">
