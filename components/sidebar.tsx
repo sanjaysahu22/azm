@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import {  HandCoins,   KeyRound, Calendar, FolderCog, Mail, UserRoundPen } from "lucide-react"
-
+const str = ">"
 export  function Sidebar() {
   return (
     <> 

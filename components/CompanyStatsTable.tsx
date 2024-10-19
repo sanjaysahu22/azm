@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   RefreshCw,
-  
+  Download,
   ArrowUp,
   Filter,
   ArrowDown,
@@ -22,7 +22,16 @@ import {
 } from "@radix-ui/react-select";
 import { Input } from "./ui/input"; // Correctly import your Input component
 
-
+const FilterShow = () => {
+  return (
+    <div className="p-4">
+      {/* Add your filter options here */}
+      <Label htmlFor="filter-input" className="text-sm font-medium">Filter</Label>
+      <Input id="filter-input" placeholder="Type to filter..." className="mt-2" />
+      {/* Additional filter components can be added here */}
+    </div>
+  );
+};
 
 export const CompanyStatsTable = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
